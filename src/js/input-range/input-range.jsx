@@ -38,6 +38,7 @@ export default class InputRange extends React.Component {
       onChangeComplete: PropTypes.func,
       step: PropTypes.number,
       value: valuePropType,
+      showStaticFields: PropTypes.bool,
     };
   }
 
@@ -54,6 +55,7 @@ export default class InputRange extends React.Component {
       maxValue: 10,
       minValue: 0,
       step: 1,
+      showStaticFields: false,
     };
   }
 
@@ -665,12 +667,13 @@ export default class InputRange extends React.Component {
         onKeyUp={this.handleKeyUp}
         onMouseDown={this.handleMouseDown}
         onTouchStart={this.handleTouchStart}>
-        <Label
+
+        {this.props.showStaticFields ? <Label
           classNames={this.props.classNames}
           formatLabel={this.props.formatLabel}
           type="min">
           {this.props.minValue}
-        </Label>
+        </Label> : undefined}
 
         <Track
           classNames={this.props.classNames}
@@ -683,12 +686,12 @@ export default class InputRange extends React.Component {
           {this.renderSliders()}
         </Track>
 
-        <Label
+        {this.props.showStaticFields ? <Label
           classNames={this.props.classNames}
           formatLabel={this.props.formatLabel}
           type="max">
           {this.props.maxValue}
-        </Label>
+        </Label> : undefined}
 
         {this.renderHiddenInputs()}
       </div>
