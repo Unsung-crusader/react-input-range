@@ -46,7 +46,7 @@
 
 .input-range__label--value {
   position: absolute;
-  bottom: -1.8rem; }
+  top: -1.8rem; }
 
 .input-range__label-container {
   left: -50%;
